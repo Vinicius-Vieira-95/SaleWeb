@@ -15,4 +15,6 @@ namespace SaleWebMvc.Models
 
         public DbSet<SaleWebMvc.Models.Department> Department { get; set; }
     }
+
+
 }
