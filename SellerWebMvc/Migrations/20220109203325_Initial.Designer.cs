@@ -4,20 +4,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SaleWebMvc.Models;
 
 namespace SaleWebMvc.Migrations
 {
     [DbContext(typeof(SaleWebMvcContext))]
-    [Migration("20210903124318_OtherEntities")]
-    partial class OtherEntities
+    [Migration("20220109203325_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("SaleWebMvc.Models.Department", b =>
                 {
@@ -58,13 +60,16 @@ namespace SaleWebMvc.Migrations
 
                     b.Property<double>("BaseSalary");
 
-                    b.Property<DateTime>("BithDate");
+                    b.Property<DateTime>("BirthDate");
 
-                    b.Property<int?>("DepartmentId");
+                    b.Property<int>("DepartmentId");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60);
 
                     b.HasKey("Id");
 
@@ -84,7 +89,8 @@ namespace SaleWebMvc.Migrations
                 {
                     b.HasOne("SaleWebMvc.Models.Department", "Department")
                         .WithMany("sellers")
-                        .HasForeignKey("DepartmentId");
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
