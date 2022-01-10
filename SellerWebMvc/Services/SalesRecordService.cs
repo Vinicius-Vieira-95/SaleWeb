@@ -36,14 +36,17 @@ namespace SellerWebMvc.Services
                 .ToListAsync();
         }
 
-        // public async Task<<SalesRecord>> GroupBySearch(DateTime? minDate, DateTime? maxDate)
-        // {
-        //     var salesRecords = _context.SalesRecords.Where(x => x.Date >= minDate && x.Date <= maxDate);
+        public async Task<List<IGrouping<Department, SalesRecord>>> GroupBySearch(DateTime? minDate, DateTime? maxDate)
+        {
+            var salesRecords = _context.SalesRecords.Where(x => x.Date >= minDate && x.Date <= maxDate);
 
-        //     return await salesRecords
-        //         .Include(x => x.Seller)
-        //         .Include(x => x.Seller.Department)
-        //         .GroupBy(x => x.Seller.Department);
-        // }
+            return await salesRecords
+                .Include(x => x.Seller)
+                .Include(x => x.Seller.Department)
+                .OrderByDescending(x => x.Date)
+                .ThenBy(x => x.Seller.Name)
+                .GroupBy(x => x.Seller.Department)
+                .ToListAsync();
+        }
     }
 }
