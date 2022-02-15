@@ -3,7 +3,7 @@
 ## Sobre o projeto
 
 É uma aplicação desenvolvida no curso de C# com professor Nelio Alvez, nela desenvolvemos um template cujo
-o objetivo é fazer uma tabelas de vendas e quadro de vendendores separada por departamentos, dando o total
+o objetivo é fazer tabelas de vendas e quadro de vendendores separada por departamentos, dando o total
 de vendas a uma faixa determida por datas de data minima e maxima. Na aplicação desenvolvemos o padrão MVC
 (Models, Views, Controlers), em que cada item tem seu papel separadamente.
 
@@ -21,7 +21,7 @@ de vendas a uma faixa determida por datas de data minima e maxima. Na aplicaçã
 
 # Tecnologia utilizada
 
-##Backend
+## Backend
  - C#
  - .NetCore
  - Postgres
@@ -31,7 +31,7 @@ de vendas a uma faixa determida por datas de data minima e maxima. Na aplicaçã
 ## Back end
 
 Pré-requisito: C# sdk 2.1, Postgres (instalado na maquina)
-obs: é necessario que as dependências estejam na mesma versão suportada.
+- obs: é necessario que as dependências estejam na mesma versão suportada.
 
 ```bash
 # clonar repositório
