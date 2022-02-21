@@ -44,7 +44,7 @@ namespace SaleWebMvc.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var department = await _departmentService.FindAllAsync();
+                var department = await _departmentService.FindAllAsync( );
                 var viewModel = new SellerFormViewModel { Seller = seller, Departments = department };
                 return View(viewModel);
             }

@@ -38,7 +38,7 @@ namespace SellerWebMvc
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<SaleWebMvcContext>(options =>
-                   options.UseNpgsql("server=localhost;Port=5432;Database=salewebmvcappdb;UserId=postgres;Password=adm"));
+                   options.UseNpgsql("server=localhost;Port=5432;Database=salewebmvcappdb1;UserId=postgres;Password=adm"));
 
             services.AddScoped<SeedingService>();
             services.AddScoped<SellerService>();

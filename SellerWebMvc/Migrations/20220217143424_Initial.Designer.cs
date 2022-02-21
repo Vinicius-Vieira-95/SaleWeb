@@ -10,7 +10,7 @@ using SaleWebMvc.Models;
 namespace SaleWebMvc.Migrations
 {
     [DbContext(typeof(SaleWebMvcContext))]
-    [Migration("20220109203325_Initial")]
+    [Migration("20220217143424_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
