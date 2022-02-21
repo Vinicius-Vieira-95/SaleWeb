@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SaleWebMvc.Models
 {
     public class Seller
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required(ErrorMessage ="{0} requiered")]
@@ -38,9 +41,8 @@ namespace SaleWebMvc.Models
 
         public Seller() { }
 
-        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department department)
+        public Seller(string name, string email, DateTime birthDate, double baseSalary, Department department)
         {
-            Id = id;
             Name = name;
             Email = email;
             BirthDate = birthDate;
